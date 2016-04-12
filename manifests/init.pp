@@ -1,7 +1,7 @@
 class pe-upgrade (
     $pe_version
   ) {
-  #$pe_version = '3.7.2'
+   $pe_version = '3.7.2'
   #$platform = "solaris-10-sparc"
 
   notify {"pe_version is ${pe_version}..":}
