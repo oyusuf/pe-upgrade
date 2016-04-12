@@ -1,4 +1,4 @@
-class pe_agent_upgrade (
+class pe-upgrade (
     $pe_version
   ) {
   #$pe_version = '3.7.2'
