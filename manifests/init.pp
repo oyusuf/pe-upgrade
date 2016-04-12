@@ -1,7 +1,7 @@
 class pe_agent_upgrade (
     $pe_version
   ) {
-  $pe_version = '3.7.0'
+  #$pe_version = '3.7.0'
   #$platform = "solaris-10-sparc"
 
   notify {"pe_version is ${pe_version}..":}
