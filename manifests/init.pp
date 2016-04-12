@@ -1,7 +1,7 @@
 class pe-upgrade (
     $pe_version
   ) {
-  #$pe_version = '3.7.0'
+  $pe_version = '3.7.0'
   #$platform = "solaris-10-sparc"
 
   notify {"pe_version is ${pe_version}..":}
@@ -35,7 +35,7 @@ class pe-upgrade (
         unless => "/usr/bin/test -d /tmp/puppet-enterprise-${pe_version}-solaris-10-sparc",
       } ->
       file {"/tmp/puppet-enterprise-${pe_version}-solaris-10-sparc/agupgrade":
-        content => "/usr/bin/touch /tmp/puppet-enterprise-${pe_version}-solaris-10-sparc/AlreadyRan\n/usr/bin/echo \"Beginning upgrade of puppet software on ${hostname} from ${puppetversion} to ${pe_version}.\" | /usr/bin/mail -s \"Puppet Upgrade Notice ${hostname}\" philip.moors@fda.hhs.gov,daren.arnold@fda.hhs.gov\n/tmp/puppet-enterprise-${pe_version}-solaris-10-sparc/puppet-enterprise-installer -a /tmp/answers.upgrade -l /var/tmp/puppet-install-${pe_version}.log\nsleep 30\n/usr/bin/echo 'shutting down mcollective' >> /var/tmp/puppet-install-${pe_version}.log\n/usr/bin/svcadm disable pe-mcollective\nsleep 10\n/usr/bin/echo 'starting up mcollective' >> /var/tmp/puppet-install-${pe_version}.log\n/usr/bin/svcadm enable pe-mcollective\n/usr/bin/mail -s \"Completed Puppet Upgrade on host ${hostname} ${pe_version}.\" philip.moors@fda.hhs.gov,daren.arnold@fda.hhs.gov < /var/tmp/puppet-install-${pe_version}.log",
+        content => "/usr/bin/touch /tmp/puppet-enterprise-${pe_version}-solaris-10-sparc/AlreadyRan\n/usr/bin/echo \"Beginning upgrade of puppet software on ${hostname} from ${puppetversion} to ${pe_version}.\" | /usr/bin/mail -s \"Puppet Upgrade Notice ${hostname}\"oluwayomi@live.com\n/tmp/puppet-enterprise-${pe_version}-solaris-10-sparc/puppet-enterprise-installer -a /tmp/answers.upgrade -l /var/tmp/puppet-install-${pe_version}.log\nsleep 30\n/usr/bin/echo 'shutting down mcollective' >> /var/tmp/puppet-install-${pe_version}.log\n/usr/bin/svcadm disable pe-mcollective\nsleep 10\n/usr/bin/echo 'starting up mcollective' >> /var/tmp/puppet-install-${pe_version}.log\n/usr/bin/svcadm enable pe-mcollective\n/usr/bin/mail -s \"Completed Puppet Upgrade on host ${hostname} ${pe_version}.\"oluwayomi@live.com < /var/tmp/puppet-install-${pe_version}.log",
         owner => 'root',
         group => 'root',
         mode => '0644',
